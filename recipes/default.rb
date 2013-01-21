@@ -71,4 +71,12 @@ when "debian", "ubuntu"
   service "supervisor" do
     action [:enable, :start]
   end
+
+if node[:recipes].include?("monit")
+  monit_service "supervisor" do
+    pidfile "/var/run/supervisord.pid"
+    start "/etc/init.d/supervisor start"
+    stop "/etc/init.d/supervisor stop"
+  end
+end
 end

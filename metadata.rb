@@ -8,6 +8,7 @@ version           "0.4.1"
 recipe "supervisor", "Installs and configures supervisord"
 
 depends "python"
+depends "monit"
 
 %w{ ubuntu debian }.each do |os|
   supports os
