@@ -54,6 +54,8 @@ end
 
 case node['platform']
 when "debian", "ubuntu"
+  package "language-pack-en-base"
+
   template "/etc/init.d/supervisor" do
     source "supervisor.init.erb"
     owner "root"
