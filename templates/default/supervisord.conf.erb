@@ -34,8 +34,9 @@ minfds = <%= @supervisord_minfds -%>
 minprocs = <%= @supervisord_minprocs -%>
 <% end -%>
 
-environment=LANG=en_EN.UTF-8,LC_ALL=en_EN.UTF-8,LC_LANG=en_EN.UTF-8
-
+<% if @node['locale']['lang'] -%>
+environment=LANG=<%= @node['locale']['lang'] %>,LC_ALL=<%= @node['locale']['lang'] %>,LC_LANG=<%= @node['locale']['lang'] %>
+<% end -%>
 
 ; the below section must remain in the config file for RPC
 ; (supervisorctl/web interface) to work, additional interfaces may be
