@@ -8,7 +8,7 @@ version           "0.4.11"
 recipe "supervisor", "Installs and configures supervisord"
 
 depends "python"
-depends "monit"
+depends "locale"
 
 %w{ ubuntu debian redhat centos fedora amazon smartos }.each do |os|
   supports os
