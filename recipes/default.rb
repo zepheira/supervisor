@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: supervisor
+# Cookbook Name:: z_supervisor
 # Recipe:: default
 #
 # Copyright 2011, Opscode, Inc.

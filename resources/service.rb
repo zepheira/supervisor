@@ -1,6 +1,6 @@
 #
 # Author:: Noah Kantrowitz <noah@opscode.com>
-# Cookbook Name:: supervisor
+# Cookbook Name:: z_supervisor
 # Resource:: service
 #
 # Copyright:: 2011, Opscode, Inc <legal@opscode.com>

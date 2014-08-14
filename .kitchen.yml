@@ -15,4 +15,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[supervisor::default]
+      - recipe[z_supervisor::default]

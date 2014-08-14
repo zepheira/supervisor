@@ -1,7 +1,11 @@
-supervisor Cookbook CHANGELOG
-=============================
-This file is used to list changes made in each version of the supervisor cookbook.
+z_supervisor Cookbook CHANGELOG
+===============================
+This file is used to list changes made in each version of the z_supervisor cookbook.
 
+v1.0.0
+------
+
+- Renamed fork to z_supervisor
 
 v0.4.10
 -------

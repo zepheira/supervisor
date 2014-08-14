@@ -1,6 +1,6 @@
 #
 # Author:: Noah Kantrowitz <noah@opscode.com>
-# Cookbook Name:: supervisor
+# Cookbook Name:: z_supervisor
 # Provider:: service
 #
 # Copyright:: 2011, Opscode, Inc <legal@opscode.com>
@@ -145,7 +145,7 @@ def get_current_state(service_name)
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::SupervisorService.new(@new_resource.name)
+  @current_resource = Chef::Resource::ZSupervisorService.new(@new_resource.name)
   @current_resource.state = get_current_state(@new_resource.name)
 end
 

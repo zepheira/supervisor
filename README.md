@@ -1,5 +1,5 @@
-supervisor Cookbook
-===================
+z_supervisor Cookbook
+=====================
 Installs (Python) supervisor and provides resources to configure services
 
 
@@ -29,7 +29,7 @@ Attributes
 
 Resources/Providers
 -------------------
-### supervisor\_service
+### z_supervisor\_service
 
 #### Actions
 
@@ -80,7 +80,7 @@ The following attributes are used in the program.conf.erb as the values for the 
 #### Examples
 
 ```ruby
-supervisor_service "celery" do
+z_supervisor_service "celery" do
   action :enable
   autostart false
   user "nobody"
