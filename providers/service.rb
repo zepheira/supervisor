@@ -91,7 +91,7 @@ def enable_service
 
   t = template "#{node['supervisor']['dir']}/#{new_resource.service_name}.conf" do
     source "program.conf.erb"
-    cookbook "supervisor"
+    cookbook "z_supervisor"
     owner "root"
     group "root"
     mode "644"
