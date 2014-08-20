@@ -23,9 +23,12 @@
 #                    subprocesses.
 ### END INIT INFO
 
+. /lib/lsb/init-functions
+
 <%# TODO: use the @supervisord template variable instead of calling which. %>
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON="$(which supervisord)"
+SUPERVISORCTL=/usr/bin/supervisorctl
 NAME=supervisord
 DESC=supervisor
 
@@ -94,7 +97,7 @@ case "$1" in
   start)
     echo -n "Starting $DESC: "
     start-stop-daemon --start --quiet --pidfile $PIDFILE \
-        --exec $DAEMON -- $DAEMON_OPTS
+        --startas $DAEMON -- $DAEMON_OPTS
     test -f $PIDFILE || sleep 1
         if running ; then
             echo "$NAME."
@@ -126,7 +129,7 @@ case "$1" in
     #
     # echo "Reloading $DESC configuration files."
     # start-stop-daemon --stop --signal 1 --quiet --pidfile \
-    #   /var/run/$NAME.pid --exec $DAEMON
+    #   $PIDFILE --startas $DAEMON
   #;;
   force-reload)
     #
@@ -136,7 +139,7 @@ case "$1" in
     #   daemon isn't already running.
     # check wether $DAEMON is running. If so, restart
     start-stop-daemon --stop --test --quiet --pidfile \
-        /var/run/$NAME.pid --exec $DAEMON \
+        $PIDFILE --startas $DAEMON \
     && $0 restart \
     || exit 0
     ;;
@@ -145,7 +148,7 @@ case "$1" in
     start-stop-daemon --stop --quiet --pidfile $PIDFILE 
     [ -n "$DODTIME" ] && sleep $DODTIME
     start-stop-daemon --start --quiet --pidfile \
-        /var/run/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
+        $PIDFILE --startas $DAEMON -- $DAEMON_OPTS
     echo "$NAME."
     ;;
   status)
@@ -156,6 +159,7 @@ case "$1" in
         echo " not running."
         exit 1
     fi
+    $SUPERVISORCTL $DAEMON_OPTS status
     ;;
   *)
     N=/etc/init.d/$NAME
