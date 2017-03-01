@@ -3,7 +3,7 @@ maintainer        "Noah Kantrowitz"
 maintainer_email  "noah@opscode.com"
 license           "Apache 2.0"
 description       "Installs supervisor and provides resources to configure services"
-version           "1.0.3"
+version           "1.0.4"
 
 recipe "z_supervisor", "Installs and configures supervisord"
 
